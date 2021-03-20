@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>&#128216; Từ điển Anh Việt &#128214;</title>
+<!--
+
+Highway Template
+
+https://templatemo.com/tm-520-highway
+-->
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="{% static '520-items/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static '520-items/css/bootstrap-theme.min.css' %}">
+        <link rel="stylesheet" href="{% static '520-items/css/fontAwesome.css' %}">
+        <link rel="stylesheet" href="{% static '520-items/css/light-box.css' %}">
+        <link rel="stylesheet" href="{% static '520-items/css/modded-templatemo-style9.css' %}">
+
+        <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+th{
+    background-color: #344974
+}
+
+tr{
+  background-color: #dddddd;
+}
+</style>
+    </head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            <a href="#"><em>&#128216; Từ điển Anh Việt &#128214;</em></a>
+        </div>
+      <div class="menu-icon">
+        <span></span>
+      </div>
+    </nav>
+
+    <div class="page-heading">
+        <div class="container">
+            <div class="heading-content">
+                <h1><em></em></h1>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="blog-entries">
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="container-fluid">
+            <div class="col-md-12">
+                <p>Copyright &copy; 2018 Company Name
+
+    | Designed by Phan Đa</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+      <!-- Modal Content -->
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h3 class="header-title" style="color:white;">About this app</h3>
+          <div class="close-btn"><img src="img/close_contact.png" alt=""></div>
+        </div>
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <div class="col-md-6 col-md-offset-3">
+            <form id="contact" action="" method="post">
+                <div class="row"><br><br>
+<p style="color:white;">English Vietnamese dictionary, text translator. Learn English vocabulary</p><br>
+	  <p style="color:white;">The dictionary includes the following main functions : </p><br>
+	  <p style="color:white;">&#128309; User can make an account to access more features</p>
+	  <p style="color:white;">&#128309; Includes transliteration.</p>
+	  <p style="color:white;">&#128309; Function translated sentences, paragraphs from English to Vietnamese.</p>
+	  <p style="color:white;">&#128309; The words include family reference and synonym.</p>
+	  	  <p style="color:white;">&#128308;<strike> Includes antonym.</strike></p>
+	  <p style="color:white;">&#128308;<strike> Translate from Vietnamese to English</strike></p>
+	  	  <p style="color:white;">&#128309; Help you to learn 100 basic English words.</p>
+	  <p style="color:white;">&#128309; Able to create your own vocabulary list</p>
+<br>
+	  	  <p style="color:white;">Developed by Chuong Tran</p>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <section class="overlay-menu">
+      <div class="container">
+        <div class="row">
+          <div class="main-menu">
+              <ul>
+                  <li>
+                      <a href="{% url 'blog' %}">Home</a>
+                  </li>
+                  <li>
+                      <a href="{% url 'feedback' %}">Feedback</a>
+                  </li>
+                  <li>
+                      <a href="{% url 'add_items_selection' %}">Add vocabulary</a>
+                  </li>
+                  <li>
+                      <a href="{% url 'edit_items_selection' %}">Edit vocabulary</a>
+                  </li>
+                  <li>
+                      <a href="{% url 'delete_items_selection' %}">Delete vocabulary</a>
+                  </li>
+                  <li>
+                      <a href="{% url 'translate_text' %}">Translate text</a>
+                  </li>
+              <li>
+                      <a href="{% url 'see_word_list' %}">Check word list</a>
+                  </li>
+                  <li>
+                      <a id="modBtn" href="#">App info</a>
+                  </li>
+              </ul>
+              <p>We build awesome dictionary for you</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+    <script src="{% static '520-items/js/vendor/jquery-1.11.2.min.js'%}"></script>
+    <script src="{% static '520-items/js/vendor/bootstrap.min.js' %}"></script>
+
+    <script src="{% static '520-items/js/plugins.js' %}"></script>
+    <script src="{% static '520-items/js/main.js' %}"></script>
+
+</body>
+</html>

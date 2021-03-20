@@ -1,0 +1,52 @@
+{% extends "520-templates/520-extended-features.html" %}
+{% block content %}
+{%load crispy_forms_tags%}
+
+{% load static %}
+<style>
+  .table-fill {
+  background: white;
+  border-radius:3px;
+  border-collapse: collapse;
+  height: 320px;
+  margin: auto;
+  max-width: 790px;
+  padding:5px;
+  width: 100%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  animation: float 5s infinite;
+}
+</style>
+<div class="col-md-9">
+                <div class="blog-posts">
+                    <form method="GET" action="{% url 'searchword' %}" enctype="multipart/form-data">{% csrf_token %}
+                    <div class="search">
+                        <fieldset>
+                            <input name="keyword" type="text" class="form-control" id="search" placeholder="Search..." required="">
+                        </fieldset>
+                    </div><input type="submit" value="Submit"></form><br>
+                    <div class="row">
+                        <div class="col-md-12">
+                             <table class="table-fill">
+<thead>
+<tr>{% for item in count %}
+    <th class="text-left" style="color:white;font-family:Roboto, helvetica,arial , serif;font-size:14.4px;">Total words (<span>{{item}}</span>)</th>{% endfor %}</tr>
+</thead>
+<tbody class="table-hover">
+<tr>
+    <td class="text-left">
+        {% for item in total_words %}
+        <p style="display:inline;color:black;">{{item.word}},</p>
+        {% endfor %}
+    </td>
+</tr>
+</tbody>
+</table>
+                            <div class="sidebar-heding">
+                            <h2></h2>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}

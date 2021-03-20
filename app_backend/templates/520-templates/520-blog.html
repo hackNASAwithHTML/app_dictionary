@@ -1,0 +1,77 @@
+{% extends "520-templates/520-extended-features.html" %}
+{% block content %}
+{% load static %}
+<div class="col-md-9">
+                <div class="blog-posts">
+                    <form method="GET" action="{% url 'searchword' %}" enctype="multipart/form-data">{% csrf_token %}
+                    <div class="search">
+                        <fieldset>
+                            <input name="keyword" type="text" class="form-control" id="search" placeholder="Search..." required="">
+                        </fieldset>
+                    </div><input type="submit" value="Submit"></form><br>
+                    <div class="row">
+                        <div class="col-md-12">
+                                <table>
+<thead><tr>
+    <th style="color:white">English to Vietnamese</th>
+  </tr></thead>
+<tbody>
+{% for keyword in itemlist %}
+  <tr>
+      <td><p>You search "<strong>{{ keyword }}</strong>"</p></td>
+  </tr>{% endfor %}
+{% for i in class_result %}
+<tr>
+    <td><strong>{{i.class_in_vietnamese}}</strong></td>
+</tr>{% endfor %}
+{% for i in word_result %}
+<tr>
+    <td ><p style="color:#FF00B9">{{i.word_in_vietnamese}}</p></td>
+</tr>{% endfor %}
+{% for i in sentence_result %}
+<tr>
+    <td><p style="color:blue">{{i.sentence}}</p>
+    {{i.sentence_in_vietnamese}}</td>
+</tr>{% endfor %}
+  </tbody>
+</table>
+                            <div class="sidebar-heding">
+                            <h2></h2>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="side-bar">
+                    <table>
+<thead><tr>
+    <th style="color:white">Family word</th>
+  </tr></thead>
+<tbody>
+{% for temp in temp_data %}
+  <tr>
+    <td><p style="color:blue;"><u>{{temp}}</u></p></td>
+  </tr> {%endfor%}
+  </tbody>
+</table> <div class="sidebar-heding">
+                            <h2></h2>
+                        </div>
+                    <div class="archives">
+                        <table>
+<thead><tr>
+    <th style="color:white">Synonym</th>
+  </tr></thead>
+<tbody>
+{% for synonym in synonym_result %}
+  <tr>
+    <td>{{synonym}}</td>
+  </tr>{% endfor %}
+  </tbody>
+</table> <div class="sidebar-heding">
+                            <h2></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}

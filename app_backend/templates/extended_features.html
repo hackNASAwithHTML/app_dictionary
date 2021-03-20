@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+{% load static %}
+<!--
+	Caminar by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Từ Điển Anh Việt</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<link rel="stylesheet" href="{% static 'assets/css/modal.css' %}" />
+		<link rel="stylesheet" href="{% static 'assets/css/menu-bar.css' %}" />
+		<link rel="stylesheet" href="{% static 'assets/css/balance.css' %}" />
+		<link rel="stylesheet" href="{% static 'assets/css/clean-form-v3.css' %}" />
+        <link rel="stylesheet" href="{% static 'assets/css/table-display-3.css' %}" />
+		<style>
+.submit1 {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.table-fill {
+  background: white;
+  border-radius:3px;
+  border-collapse: collapse;
+  height: 320px;
+  margin: auto;
+  max-width: 790px;
+  padding:5px;
+  width: 100%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  animation: float 5s infinite;
+}
+</style>
+	</head>
+	<body><!-- Main -->
+    <div id='cssmenu'>
+<ul>
+   <li class="active has-sub"><a href="{% url 'home' %}"><span>Home</span></a>
+   	<ul>
+	   <li><a href="{% url 'see_words_list' %}"><span>Contact</span></a></li>
+	   <li id="myBtn" ><a href='#'><span>App info</span></a></li>
+   </ul>
+   </li>
+	<li class='active has-sub'><a href="{% url 'add_word' %}"><span>Add word</span></a>
+      <ul>
+         <li class='active has-sub'><a href="#"><span>Add class</span></a>
+            <ul>
+               <li><a href="{% url 'add_sentence' %}"><span>Add sentence</span></a></li>
+            </ul>
+         </li>
+          <li class='has-sub'><a href="{% url 'add_family_word' %}"><span>Add family word</span></a>
+		  <ul>
+               <li><a href="{% url 'add_class_family_word' %}"><span>Add class for family word</span></a></li>
+            </ul>
+		  </li>
+          <li><a href="{% url 'add_synonym' %}"><span>Add synonym</span></a></li>
+		  <li><a href="{% url 'text_translating' %}"><span>Translate text</span></a></li>
+		  <li><a href="{% url 'see_words_list' %}"><span>Available words</span></a></li>
+      </ul>
+   </li>
+	{% if user.is_authenticated %}
+	<li class="active has-sub"><a href="#"><span>More</span></a>
+		 <ul>
+          <li><a href="#"><span>Translate text</span></a></li>
+		  <li><a href="#"><span>Your words</span></a></li>
+		  <li><a href="#"><span>Recent words</span></a></li>
+      </ul>
+	</li>
+	<li class="active has-sub"><a href="{% url 'logout' %}"><span>Logout</span></a></li>
+	{% else %}
+	<li class="class has-sub"><a href="{% url 'signup' %}"><span>Register</span></a>
+		<ul>
+               <li><a href="{% url 'login' %}"><span>Login</span></a></li>
+            </ul>
+	</li>
+	{% endif %}
+</ul>
+</div>
+	{% block content %}
+    {% endblock %}
+	<!-- Modal content -->
+<div id="myModal" class="modal">
+ <p style="color:white;">English Vietnamese dictionary, text translator. Learn English vocabulary</p><br>
+	  <p style="color:white;">The dictionary includes the following main functions : </p><br>
+	  <p style="color:white;">&#128309; User can make an account to access more features</p>
+	  <p style="color:white;">&#128309; Includes transliteration.</p>
+	  <p style="color:white;">&#128309; Function translated sentences, paragraphs from English to Vietnamese.</p>
+	  <p style="color:white;">&#128309; The words include family reference and synonym.</p>
+	  	  <p style="color:white;">&#128308;<strike> Includes antonym.</strike></p>
+	  <p style="color:white;">&#128308;<strike> Translate from Vietnamese to English</strike></p>
+	  	  <p style="color:white;">&#128309; Help you to learn 100 basic English words.</p>
+	  <p style="color:white;">&#128309; Able to create your own vocabulary list</p>
+<br>
+	  	  <p style="color:white;">Developed by Chuong Tran</p>
+</div>
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+					</ul>
+				</div>
+				<div class="copyright">
+					&copy; Untitled. All rights reserved. Images <a href="https://unsplash.com">Unsplash</a> Design <a href="https://templated.co">TEMPLATED</a>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.poptrox.min.js' %}"></script>
+			<script src="{% static 'assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'assets/js/util.js' %}"></script>
+			<script src="{% static 'assets/js/main.js' %}"></script>
+    <script>
+      const choices = new Choices('[data-trigger]',
+      {
+        searchEnabled: false,
+        itemSelectText: '',
+      });
+
+    </script>
+	<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+	<script>
+		$(document).ready(function(){
+    $('#TextBoxId').keypress(function(e){
+      if(e.keyCode==13)
+      $('#linkadd').click();
+    });
+});
+	</script>
+	</body>
+</html>

@@ -1,0 +1,74 @@
+{% extends "extended_features.html" %}
+{% block content %}
+{%load crispy_forms_tags%}
+{% load static %}
+<style>
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+.button1 {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+</style>
+	<section id="main">
+				<div class="inner">
+					<div class="wrapper style1">
+						<div class="content">
+							          <form class="contribute" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="content">
+		{{w_form|crispy}}
+		<tr><th><label for="id_class_type">Class type:</label></th><td><select name="class_type" id="id_class_type">
+  <option value="Adjectives">Adjectives</option>
+
+  <option value="Adverbs">Adverbs</option>
+
+  <option value="Prepositions">Prepositions</option>
+
+  <option value="Noun">Noun</option>
+
+  <option value="Pronouns">Pronouns</option>
+
+  <option value="Verbs" selected>Verbs</option>
+
+</select></td></tr>
+<tr><th><label for="id_class_translated">Class translated:</label></th><td><select name="class_translated" id="id_class_translated">
+  <option value="Tính từ">Tính từ</option>
+
+  <option value="Trạng từ">Trạng từ</option>
+
+  <option value="Giới từ">Giới từ</option>
+
+  <option value="Danh từ">Danh từ</option>
+
+  <option value="Đại từ">Đại từ</option>
+
+  <option value="Động từ" selected>Động từ</option>
+
+</select></td></tr>
+		<tr><th><label for="id_sentence">Sentence:</label></th><td><input type="text" name="sentence" maxlength="254" required id="id_sentence"></td></tr>
+<tr><th><label for="id_sentence_translated">Sentence translated:</label></th><td><input type="text" name="sentence_translated" maxlength="254" required id="id_sentence_translated"></td></tr>
+<tr><th><label for="id_family_word">Family word:</label></th><td><input type="text" name="family_word" maxlength="254" required id="id_family_word"></td></tr>
+<tr><th><label for="id_synonym">Synonym:</label></th><td><input type="text" name="synonym" maxlength="254" required id="id_synonym"></td></tr>
+		<button type="submit" class="button button1">SAVE</button><span>Click to save vocabulary</span>
+</div>
+
+</form>
+									</div>
+								</div>
+							</div>
+
+			</section>
+{% endblock %}
